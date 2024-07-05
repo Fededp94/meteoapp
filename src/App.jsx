@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import WeatherForm from "./componets/WeatherForm";
-import WeatherInfo from "./componets/WeatherInfo";
+import WeatherForm from "./components/WeatherForm";
+import WeatherInfo from "./components/WeatherInfo";
+import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./App.module.css";
-// aggiungere import bootstrap
 // sistemare css globale( migliorare)
 // aggiungere api corretta
 
