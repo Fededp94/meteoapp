@@ -4,8 +4,6 @@ import WeatherForm from "./components/WeatherForm";
 import WeatherInfo from "./components/WeatherInfo";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./App.module.css";
-// sistemare css globale( migliorare)
-// aggiungere api corretta
 
 const App = () => {
   const [weather, setWeather] = useState(null);
@@ -17,8 +15,9 @@ const App = () => {
     setError(null);
 
     try {
+      const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
       const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=YOUR_API_KEY&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
       );
       setWeather(response.data);
     } catch (err) {
@@ -30,9 +29,9 @@ const App = () => {
 
   return (
     <div>
-      <h1>Weather App</h1>
+      <h1>FedeMeteo.com</h1>
       <WeatherForm fetchWeather={fetchWeather} />
-      {loading && <p>Loading...</p>}
+      {loading && <p>Caricamento...</p>}
       {error && <p>{error}</p>}
       {weather && <WeatherInfo weather={weather} />}
     </div>
